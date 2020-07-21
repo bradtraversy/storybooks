@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app"
+    "dev": "cross-env NODE_ENV=development nodemon app",
+    "postinstall": "node ./scripts/post-install.js"
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -15,6 +16,7 @@
     "express": "^4.17.1",
     "express-handlebars": "^4.0.4",
     "express-session": "^1.17.1",
+    "fs-extra": "^9.0.1",
     "method-override": "^3.0.0",
     "moment": "^2.27.0",
     "mongoose": "^5.9.19",
