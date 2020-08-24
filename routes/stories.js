@@ -3,6 +3,8 @@ const router = express.Router()
 const { ensureAuth } = require('../middleware/auth')
 
 const Story = require('../models/Story')
+const Comment = require('../models/Comment')
+const User = require('../models/User')
 
 // @desc    Show add page
 // @route   GET /stories/add
@@ -45,7 +47,12 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route   GET /stories/:id
 router.get('/:id', ensureAuth, async (req, res) => {
   try {
-    let story = await Story.findById(req.params.id).populate('user').lean()
+    let story = await Story.findById(req.params.id)
+    .populate('user')
+    .populate('comments')
+    .lean()
+
+    console.log(story)
 
     if (!story) {
       return res.render('error/404')
@@ -152,5 +159,58 @@ router.get('/user/:userId', ensureAuth, async (req, res) => {
     res.render('error/500')
   }
 })
+
+router.get('/add/:id/comments', async (req, res) => {
+  try {
+    let story = await Story.findById(req.params.id).lean()
+    if (!story) {
+      console.log('not found')
+    }
+    res.render('stories/addcomment', {
+      story
+    })
+  } catch (error) {
+    console.error(error)
+  }
+
+})
+
+router.post('/:id/comments', ensureAuth, async (req, res) => {
+
+  try {
+    let user = await User.findById(req.user.id).lean()
+    console.log(user)
+    if(!user){
+      console.log('user not found')
+    }
+    let story = await Story.findById(req.params.id).lean()
+    let comment =  new Comment(req.body)
+    comment.story = story;
+    comment.user =  user
+    comment.user_image = user.img
+
+     let newComment =  await comment.save()
+          
+     await Story.addComment(user._id, story._id, comment._id);
+
+     res.redirect(`/`)
+  } catch (error) {
+    console.error(error)
+  }
+
+})
+
+// router.get('/:id/comments', async (req,res) => {
+// try {
+
+
+
+// } catch (error) {
+//   console.error(err)
+//   res.render('error/500')
+// }
+
+
+// })
 
 module.exports = router

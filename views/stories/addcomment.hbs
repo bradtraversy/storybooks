@@ -1,0 +1,14 @@
+    <form action="/stories/{{story._id}}/comments" method="POST" class="col s12">
+
+    <h1>{{story._id}}</h1>
+    <div class="row">
+        <div class="input-field">
+            <h5>Write A Comment:</h5>
+            <textarea id="body" name="body"></textarea>
+        </div>
+    </div>
+    <div class="row">
+        <input type="submit" value="Save" class="btn">
+        <a href="/dashboard" class="btn orange">Cancel</a>
+    </div>
+    </form>
