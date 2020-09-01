@@ -19,10 +19,20 @@ const StorySchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
+  comments: [
+    { type: mongoose.Schema.Types.ObjectId, ref: 'Comment'}
+  ],
+  comments_count: Number ,
   createdAt: {
     type: Date,
     default: Date.now,
   },
 })
+
+StorySchema.statics.addComment = function (user_id, minute_id, comment_id, done) {
+  this.update({ "_id": minute_id, "user": user_id }, { $push: { comments: comment_id }, $inc: { comments_count: 1 } }, { multi: false }, function(a, b, c){
+    console.log("addComment", a ,b,c);
+  });
+};
 
 module.exports = mongoose.model('Story', StorySchema)
