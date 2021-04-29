@@ -67,7 +67,7 @@ app.engine(
 )
 app.set('view engine', '.hbs')
 
-// Sessions
+
 app.use(
   session({
     secret: 'keyboard cat',
