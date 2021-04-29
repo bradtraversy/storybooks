@@ -77,7 +77,7 @@ app.use(
   })
 )
 //test
-
+//TEST
 
 // Passport middleware
 app.use(passport.initialize())
