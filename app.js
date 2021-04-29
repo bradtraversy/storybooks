@@ -76,6 +76,7 @@ app.use(
     store: new MongoStore({ mongooseConnection: mongoose.connection }),
   })
 )
+//test
 
 
 // Passport middleware
