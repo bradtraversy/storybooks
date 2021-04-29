@@ -1,0 +1,18 @@
+
+name: Deploy
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
+        with:
+          heroku_api_key: ${{a88cf795-4102-47ec-bd22-d984beb1ab00}}
+          heroku_app_name: "devops-test-storybook" #Must be unique in Heroku
+          heroku_email: "echi.wael@gmail.com"
