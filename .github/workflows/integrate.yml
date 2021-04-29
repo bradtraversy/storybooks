@@ -1,7 +1,7 @@
 name: Node Continuous Integration
 
 on:
-  pull:
+  [push]:
     branches: [ master ]
 
 
