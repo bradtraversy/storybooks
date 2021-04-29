@@ -80,7 +80,7 @@ app.use(
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-//added commeent for fun
+//added commeent for function
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null

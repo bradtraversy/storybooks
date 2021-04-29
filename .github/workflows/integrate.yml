@@ -1,12 +1,12 @@
 name: Node Continuous Integration
 
 on:
-  pull_request:
+  pull:
     branches: [ master ]
 
 
 jobs:
-  test_pull_request:
+  test_pull:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
