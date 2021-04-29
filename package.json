@@ -6,7 +6,9 @@
   "scripts": {
     "start": "node app",
     "dev": "nodemon app",
-    "postinstall": "node ./scripts/post-install.js"
+    "postinstall": "node ./scripts/post-install.js",
+    "test": "echo \"test\"",
+    "build": "echo \"run build\""
   },
   "author": "Brad Traversy",
   "license": "MIT",
