@@ -4,8 +4,8 @@
   "description": "App for creating public and private stories",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app",
+    "start": "node app",
+    "dev": "nodemon app",
     "postinstall": "node ./scripts/post-install.js"
   },
   "author": "Brad Traversy",
