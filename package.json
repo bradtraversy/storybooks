@@ -4,9 +4,11 @@
   "description": "App for creating public and private stories",
   "main": "app.js",
   "scripts": {
-    "start": "cross-env NODE_ENV=production node app",
-    "dev": "cross-env NODE_ENV=development nodemon app",
-    "postinstall": "node ./scripts/post-install.js"
+    "start": "node app",
+    "dev": "nodemon app",
+    "postinstall": "node ./scripts/post-install.js",
+    "test": "echo \"test\"",
+    "build": "echo \"run build\""
   },
   "author": "Brad Traversy",
   "license": "MIT",
@@ -19,7 +21,7 @@
     "fs-extra": "^9.0.1",
     "method-override": "^3.0.0",
     "moment": "^2.27.0",
-    "mongoose": "^5.9.19",
+    "mongoose": "^5.12.6",
     "morgan": "^1.10.0",
     "passport": "^0.4.1",
     "passport-google-oauth20": "^2.0.0"
