@@ -14,7 +14,7 @@
     "connect-mongo": "^3.2.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "express-handlebars": "^4.0.4",
+    "express-handlebars": "^5.3.1",
     "express-session": "^1.17.1",
     "fs-extra": "^9.0.1",
     "method-override": "^3.0.0",
