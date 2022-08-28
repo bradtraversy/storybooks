@@ -33,3 +33,7 @@ p {
 .input-group .input-group-addon{
   display:table-cell;
 }
+
+.search-form {
+  margin: 70px 0;
+}
