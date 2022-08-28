@@ -168,7 +168,7 @@ router.get('/search/:query', ensureAuth, async (req, res) => {
      res.render('stories/index', { stories })
   } catch(err){
       console.log(err)
-      //res.render('error/500')
+      res.render('error/404')
   }
 })
 
