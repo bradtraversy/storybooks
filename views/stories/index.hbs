@@ -1,4 +1,20 @@
 <h1>Stories</h1>
+<ul>
+    <li>    
+        <form id="search-site"  action='/stories/search/:query' method='get'>
+            <div class="input-group">
+                    <i class="fas fa-search fa-large" ></i>
+                    <div class="input-field">
+                    <input id="search" type="search" name='query' placeholder="Search by title">
+                    <label class="label-icon" for="search">
+                    </label>
+                 </div>
+                <button type="submit" class="input-group-addon btn">search</button>
+            </div>
+
+        </form>  
+    </li>   
+</ul>
 <div class="row">
     {{#each stories}}
     <div class="col s12 m4">
