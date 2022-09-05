@@ -15,7 +15,7 @@ router.get(
     res.redirect('/dashboard')
   }
 )
-
+//hello
 // @desc    Logout user
 // @route   /auth/logout
 router.get('/logout', (req, res, next) => {

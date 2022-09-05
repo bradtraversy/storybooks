@@ -9,10 +9,10 @@ const passport = require('passport')
 const session = require('express-session')
 const MongoStore = require('connect-mongo');
 const connectDB = require('./config/db')
-
+//new comment
 // Load config
 dotenv.config({ path: './config/config.env' })
-
+// PATH
 // Passport config
 require('./config/passport')(passport)
 
@@ -67,7 +67,7 @@ app.engine(
 )
 app.set('view engine', '.hbs')
 
-// Sessions
+
 app.use(
   session({
     secret: 'keyboard cat',
@@ -76,11 +76,13 @@ app.use(
     store: MongoStore.create({mongoUrl: process.env.MONGO_URI,}),
   })
 )
+//test
+//TEST
 
 // Passport middleware
 app.use(passport.initialize())
 app.use(passport.session())
-
+//added commeent for function
 // Set global var
 app.use(function (req, res, next) {
   res.locals.user = req.user || null
