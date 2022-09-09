@@ -21,4 +21,33 @@
             </div>
         </div>
     </div>
+
+    <div>
+        {{#each story.comments}}
+
+
+        <span class="user-image">
+            {{#if user_image}}
+            <img height="50" width="50" src='{{user_image}}' alt="User Image">
+            {{else}}
+            <img height="50" width="50"
+                src="https://lh5.googleusercontent.com/-V7J4IyfYxrw/AAAAAAAAAAI/AAAAAAAAAAA/AMZuucnMXxp28a8K8HWULue8XR-7A/photo.jpg">
+            {{/if}}
+        </span>
+        <span class="content">
+            {{{body}}}
+        </span>
+
+        {{else}}
+        <p>No comments to display</p>
+        {{/each}}
+
+
+    </div>
+
+
+    <p><a href="add/{{story._id}}/comments">Add a Comment</a></p>
+
+
+
 </div>
