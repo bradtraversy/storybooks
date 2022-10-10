@@ -20,3 +20,20 @@ p {
 .img-small {
   width: 180px;
 }
+
+.fa-large {
+  font-size: 26px !important;
+}
+
+.input-group{
+  display:table;
+  width:100%;
+}
+.input-group .input-field,
+.input-group .input-group-addon{
+  display:table-cell;
+}
+
+.search-form {
+  margin: 70px 0;
+}
