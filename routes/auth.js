@@ -19,10 +19,10 @@ router.get(
 // @desc    Logout user
 // @route   /auth/logout
 router.get('/logout', (req, res, next) => {
-  req.logout((error) => {
-      if (error) {return next(error)}
-      res.redirect('/')
+    req.logout(function(err) {
+      if (err) { return res.render('error/500'); }
+      res.redirect('/');})
+
   })
-})
 
 module.exports = router
