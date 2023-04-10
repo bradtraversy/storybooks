@@ -24,7 +24,7 @@
             </div>
             <div class="card-content center-align">
                 <h5>{{title}}</h5>
-                <p>{{stripTags (truncate body 150)}}</p>
+                <p>{{truncate (stripTags body) 150}}</p>
                 <br>
                 <div class="chip">
                     <img src="{{user.image}}" alt="">

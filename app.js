@@ -7,8 +7,9 @@ const exphbs = require('express-handlebars')
 const methodOverride = require('method-override')
 const passport = require('passport')
 const session = require('express-session')
-const MongoStore = require('connect-mongo');
+const MongoStore = require('connect-mongo')(session)
 const connectDB = require('./config/db')
+
 
 // Load config
 dotenv.config({ path: './config/config.env' })
@@ -53,7 +54,7 @@ const {
 // Handlebars
 app.engine(
   '.hbs',
-  exphbs({
+  exphbs.engine({
     helpers: {
       formatDate,
       stripTags,
@@ -68,14 +69,12 @@ app.engine(
 app.set('view engine', '.hbs')
 
 // Sessions
-app.use(
-  session({
-    secret: 'keyboard cat',
+app.use(session({
+    secret: 'story book',
     resave: false,
     saveUninitialized: false,
-    store: MongoStore.create({mongoUrl: process.env.MONGO_URI,}),
-  })
-)
+    store: new MongoStore({mongooseConnection: mongoose.connection}),
+  }))
 
 // Passport middleware
 app.use(passport.initialize())
