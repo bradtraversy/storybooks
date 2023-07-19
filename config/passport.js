@@ -39,7 +39,19 @@ module.exports = function (passport) {
     done(null, user.id)
   })
 
-  passport.deserializeUser((id, done) => {
-    User.findById(id, (err, user) => done(err, user))
+  passport.deserializeUser(async (id, done) => {
+    //ERROR:model.findbyid() no longer accepts a callback
+    // User.findById(id, (err, user) => done(err, user))
+    try {
+      const userFound = await User.findById(id);
+      console.log(userFound);
+      if (userFound) {
+        done(null, userFound)
+      } else {
+        done(err, userFound)
+      }
+    } catch (err) {
+      console.log(err);
+    }
   })
 }
