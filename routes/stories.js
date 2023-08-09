@@ -128,7 +128,7 @@ router.delete('/:id', ensureAuth, async (req, res) => {
     if (story.user != req.user.id) {
       res.redirect('/stories')
     } else {
-      await Story.remove({ _id: req.params.id })
+      await Story.deleteOne({ _id: req.params.id })
       res.redirect('/dashboard')
     }
   } catch (err) {
