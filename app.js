@@ -73,6 +73,9 @@ app.use(
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: false,
+    cookie: {
+          maxAge: 60 * 60 * 24 * 90 * 1000,
+      },
     store: MongoStore.create({mongoUrl: process.env.MONGO_URI,}),
   })
 )
